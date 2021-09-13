@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="basic_learning_testng.DependsUpon"/>
+      <class name="basic_learning_testng.BefAefMethod"/>
+      <class name="basic_learning_testng.PritorityEnabled"/>
+      <class name="basic_learning_testng.Testng_annotations"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

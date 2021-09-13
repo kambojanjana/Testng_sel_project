@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Test">
+		<parameter name="Browser" value="Chrome" />
+		<parameter name="url" value="https://www.facebook.com/" />
+		<parameter name="email" value="rakeshkamboj26@gmail.com" />
+		<parameter name="pass" value="9050020229vI!" />
+
+		<classes>
+			<class name="basic_learning_testng.Parmeterization_testng" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
