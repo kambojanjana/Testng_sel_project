@@ -11,14 +11,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
 public class OddLlaunch {
 	public static WebDriver driver;
-	
-	@Test(priority = 1,enabled = true)
-	@Parameters({"url", "navLink", "email", "password"})
+	private WebDriver button;
+
+	@Test(priority = 1, enabled = true)
+	@Parameters({ "url", "navLink", "email", "password" })
 	public void odooLogin(String url, String navLink, String email, String password) {
-		System.setProperty("webdriver.chrome.driver", "D:\\work\\workspace\\Testng_sel_project\\chdriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\workspace\\Testng_sel_project\\chdriver\\chromedriver.exe");
 
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -29,90 +29,69 @@ public class OddLlaunch {
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.findElement(By.id("login")).sendKeys(email);
 		driver.findElement(By.id("password")).sendKeys(password);
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		// driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 	}
 
-	@Test(priority = 2,enabled = true)
-	@Parameters({"loginXpath", "connectXpath","crmId"})
-	public void selectOdooCrm(String loginXpath,String connectXpath , String crmId) {
+	@Test(priority = 2, enabled = true)
+	@Parameters({ "loginXpath", "connectXpath", "crmId" })
+	public void selectOdooCrm(String loginXpath, String connectXpath, String crmId) {
 
 		driver.findElement(By.xpath(loginXpath)).click();
 		driver.findElement(By.xpath(connectXpath)).click();
 		driver.findElement(By.id(crmId)).click();
 	}
-	
-	@Test(priority = 3,enabled = true)
-	//@Parameters("val")
-	//public void CustomerCre(String val) {
-	public void CustomerCre() throws InterruptedException {
-		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("ul.o_menu_sections li:nth-child(1) a")).click();
-		//driver.wait(5000);
 
-		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.res_partner_menu_customer']")).click();
-		driver.wait(5000);
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		//driver.findElement(By.xpath("//div/div/div/button")).click();
-		//driver.findElement(By.className("o-kanban-button-new")).click();
-		
-	
+	@Test(priority = 3, enabled = true)
+	public void Cofiguration() throws InterruptedException {
+
+		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Sales Teams')]")).click();
+		driver.findElement(By.xpath("//div/div/div/button[3]")).click();
+		driver.findElement(By.name("name")).sendKeys("100 Dell");
+		driver.findElement(By.className("custom-control-label")).click();
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
+		// driver.findElement(By.id("o_field_input_742")).click();
+		// driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anju");
+		// driver.findElement(By.name("alias_name")).sendKeys("kamboj");
+		// driver.findElement(By.id("o_field_input_753")).click();
 	}
-	
-	@Test(priority = 4,enabled = true)
-	//@Parameters("val")
-	//public void CustomerCre(String val) {
-	public void CustomerCreq1() throws InterruptedException {
-		driver.wait(10000);
-		driver.findElement(By.className("o-kanban-button-new")).click();
+
+	@Test(priority = 4, enabled = true)
+	public void Cofiguration1() throws InterruptedException {
+		driver.findElement(By.id("o_field_input_751")).click();
+		driver.findElement(By.xpath("//input[@id='o_field_input_751']")).sendKeys("anjana");
+		driver.findElement(By.name("alias_name")).sendKeys("kamboj");
+		driver.findElement(By.id("o_field_input_753")).click();
+
 		
-		
-	
+
 	}
-	
-	@Test(priority = 5,enabled = true)
-	//@Parameters("val")
-	//public void CustomerCre(String val) {
-	public void CustomerCreq11() throws InterruptedException {
-		driver.wait(10000);
-		driver.findElement(By.xpath("//div/div/div/button")).click();
-		
-		
-	
+
+	@Test(priority = 5, enabled = false)
+	public void Cofiguration11() throws InterruptedException {
+
+		driver.findElement(By.name("alias_name")).sendKeys("kamboj");
+		driver.findElement(By.id("o_field_input_753")).click();
+
 	}
-	//@Test(priority = 3,enabled = true)
-	//@Parameters("val")
-	//public void CustomerCre(String val) {
-	public void CustomerSales() {
-		 //driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_sales']")).click();
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		//driver.findElement(By.cssSelector(val)).click();	
-		//driver.findElement(By.xpath("//span[contains(text(),'Customers')]")).click();
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		//driver.findElement(By.xpath("//span[contains(text(),'Customers')]")).click();
-		//driver.findElement(By.className("o-kanban-button-new")).click();
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		//driver.findElement(By.xpath("//div/div/div/button")).click();
-		//driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
-		//driver.findElement(By.xpath("//span[contains(text(),'Sales Teams')]")).click();
-		//driver.findElement(By.xpath("//div/div/div/button[3]")).click();
+
+	@Test(priority = 6, enabled = true)
+	public void Cofiguration116() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[contains(text(),'Create')]")).click();
+		driver.findElement(By.name("login")).sendKeys("kamboj81@gmail.com");
+		driver.findElement(By.xpath("//span[contains(text(),'Save')]")).click();
+		
 	}
-	
-	//@Test(priority = 4,enabled = true)
-	//@Parameters("val")
-	//public void CustomerCre(String val) {
-	public void CustomerCre1() {
-		//driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-		//driver.findElement(By.className("o-kanban-button-new")).click();
-		//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		//driver.findElement(By.xpath("//div/div/div/button")).click();
+
+	@Test(priority = 7, enabled = true)
+	public void Cofiguration1167() throws InterruptedException {
+
+		// driver.findElement(By.className("button.btn.btn-primary.o_form_button_save")).click(); }
+		//driver.findElement(By.xpath("//div/div/div/div/div[2]/button[1]")).click();
+		//driver.findElement(By.cssSelector("input[type='button'][value='Save']"));
+		//button.get(0).click();
 		
-		//Actions actions = new Actions(driver);
-		//actions.moveToElement(driver.findElement(By.className("o-kanban-button-new"))).click().pause(50).click().build().perform();
-		
-		//WebElement element = (WebElement) By.className("o-kanban-button-new");
-		//((JavascriptExecutor) driver).executeScript("return arguments[0].click();", element); 
 	}
 }
-
