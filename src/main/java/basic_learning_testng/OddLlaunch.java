@@ -18,7 +18,7 @@ public class OddLlaunch {
 	@Test(priority = 1,enabled = true)
 	@Parameters({"url", "navLink", "email", "password"})
 	public void odooLogin(String url, String navLink, String email, String password) {
-		System.setProperty("webdriver.chrome.driver", "D:\\work\\workspace\\selenium-chrome\\chdriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\work\\workspace\\Testng_sel_project\\chdriver\\chromedriver.exe");
 
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
