@@ -10,6 +10,9 @@
 		<parameter name="loginXpath" value="//form/div[3]/button" />
 		<parameter name="connectXpath" value="//form/button" />
 		<parameter name="crmId" value="result_app_3" />
+		
+		
+		<parameter name="val" value="a[data-menu-xmlid='crm.crm_menu_sales']" />
 
 		<classes>
 			<class name="basic_learning_testng.OddLlaunch" />
