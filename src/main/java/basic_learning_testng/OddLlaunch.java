@@ -43,7 +43,7 @@ public class OddLlaunch {
 
 	@Test(priority = 3, enabled = true)
 	public void Cofiguration() throws InterruptedException {
-
+//Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
 		driver.findElement(By.xpath("//span[contains(text(),'Sales Teams')]")).click();
 		driver.findElement(By.xpath("//div/div/div/button[3]")).click();
@@ -59,8 +59,9 @@ public class OddLlaunch {
 
 	@Test(priority = 4, enabled = true)
 	public void Cofiguration1() throws InterruptedException {
-		driver.findElement(By.id("o_field_input_751")).click();
-		driver.findElement(By.xpath("//input[@id='o_field_input_751']")).sendKeys("anjana");
+		//Thread.sleep(5000);
+		driver.findElement(By.id("o_field_input_742")).click();
+		driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anjana");
 		driver.findElement(By.name("alias_name")).sendKeys("kamboj");
 		driver.findElement(By.id("o_field_input_753")).click();
 
@@ -78,18 +79,18 @@ public class OddLlaunch {
 
 	@Test(priority = 6, enabled = true)
 	public void Cofiguration116() throws InterruptedException {
-
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[contains(text(),'Create')]")).click();
-		driver.findElement(By.name("login")).sendKeys("kamboj81@gmail.com");
+		driver.findElement(By.name("login")).sendKeys("kamboj410@gmail.com");
 		driver.findElement(By.xpath("//span[contains(text(),'Save')]")).click();
-		
+		Thread.sleep(5000);
 	}
 
 	@Test(priority = 7, enabled = true)
 	public void Cofiguration1167() throws InterruptedException {
-
+		Thread.sleep(10000);
 		// driver.findElement(By.className("button.btn.btn-primary.o_form_button_save")).click(); }
-		//driver.findElement(By.xpath("//div/div/div/div/div[2]/button[1]")).click();
+		driver.findElement(By.xpath("//div/div/div[2]/button[2]")).click();
 		//driver.findElement(By.cssSelector("input[type='button'][value='Save']"));
 		//button.get(0).click();
 		
