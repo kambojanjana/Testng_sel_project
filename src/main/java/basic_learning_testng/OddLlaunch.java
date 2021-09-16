@@ -3,11 +3,11 @@ package basic_learning_testng;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -42,7 +42,7 @@ public class OddLlaunch {
 	}
 
 	@Test(priority = 3, enabled = true)
-	public void Cofiguration() throws InterruptedException {
+	public void SalesPage() throws InterruptedException {
 //Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
 		driver.findElement(By.xpath("//span[contains(text(),'Sales Teams')]")).click();
@@ -58,41 +58,19 @@ public class OddLlaunch {
 	}
 
 	@Test(priority = 4, enabled = true)
-	public void Cofiguration1() throws InterruptedException {
-		//Thread.sleep(5000);
-		driver.findElement(By.id("o_field_input_742")).click();
-		driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anjana");
-		driver.findElement(By.name("alias_name")).sendKeys("kamboj");
-		driver.findElement(By.id("o_field_input_753")).click();
+	public void SalesPageCreated() throws InterruptedException {
 
-		
+		driver.findElement(By.xpath("//table/tbody/tr[2]/td[2]/div/div/input")).click();
+		driver.findElement(By.xpath("//ul[@id='ui-id-1']/li/a")).click();
+		driver.findElement(By.name("alias_name")).sendKeys("kamboj0071");
+		driver.findElement(By.className("o_form_button_save")).click();
 
-	}
+		driver.findElement(By.xpath("div/div/div/div[2]/div/div/div/div[2]/button[1]")).click();
 
-	@Test(priority = 5, enabled = false)
-	public void Cofiguration11() throws InterruptedException {
-
-		driver.findElement(By.name("alias_name")).sendKeys("kamboj");
-		driver.findElement(By.id("o_field_input_753")).click();
+		// driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anjana");
+		// driver.findElement(By.name("alias_name")).sendKeys("kamboj");
+		// driver.findElement(By.id("o_field_input_753")).click();
 
 	}
 
-	@Test(priority = 6, enabled = true)
-	public void Cofiguration116() throws InterruptedException {
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//span[contains(text(),'Create')]")).click();
-		driver.findElement(By.name("login")).sendKeys("kamboj410@gmail.com");
-		driver.findElement(By.xpath("//span[contains(text(),'Save')]")).click();
-		Thread.sleep(5000);
-	}
-
-	@Test(priority = 7, enabled = true)
-	public void Cofiguration1167() throws InterruptedException {
-		Thread.sleep(10000);
-		// driver.findElement(By.className("button.btn.btn-primary.o_form_button_save")).click(); }
-		driver.findElement(By.xpath("//div/div/div[2]/button[2]")).click();
-		//driver.findElement(By.cssSelector("input[type='button'][value='Save']"));
-		//button.get(0).click();
-		
-	}
 }
