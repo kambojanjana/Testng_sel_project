@@ -11,13 +11,13 @@
 		<parameter name="connectXpath" value="//form/button" />
 		<parameter name="crmId" value="result_app_3" />
 		
-		<parameter name="configuration"
-			value="a[data-menu-xmlid='crm.crm_menu_sales']" />
+		<parameter name="configurationMenu"
+			value="a[data-menu-xmlid='crm.crm_menu_config']" />
 			
-		<parameter name="salesteam"
+		<parameter name="salesTeam"
 			value="//span[contains(text(),'Sales Teams')]" />
 			
-		<parameter name="create" value="//div/div/div/button[3]" />
+		<parameter name="createSales" value="//div/div/div/button[3]" />
 		<parameter name="salesteamName" value="name" />
 		<parameter name="salesteamNamevalue" value="100 Dell" />
 		<parameter name="customControlLabel"

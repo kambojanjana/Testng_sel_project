@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 //import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Parameters;
@@ -23,9 +22,9 @@ public class OddLlaunch {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
-
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.className(navLink)).click();
-
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.id("login")).sendKeys(email);
 		driver.findElement(By.id("password")).sendKeys(password);
 		
@@ -41,13 +40,12 @@ public class OddLlaunch {
 	}
 
 	@Test(priority = 3, enabled = true)
-	@Parameters({ "configurationMenu", "salesteam", "create" })
-	public void salesPage(String configuration, String salesteam, String create) throws InterruptedException {
+	@Parameters({ "configurationMenu", "salesTeam", "createSales" })
+	public void salesPage(String configurationMenu, String salesTeam, String createSales) throws InterruptedException {
 
-		//driver.findElement(By.cssSelector(configuration)).click();
-		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
-		driver.findElement(By.xpath(salesteam)).click();
-		driver.findElement(By.xpath(create)).click();
+		driver.findElement(By.cssSelector(configurationMenu)).click();
+		driver.findElement(By.xpath(salesTeam)).click();
+		driver.findElement(By.xpath(createSales)).click();
 
 	}
 
