@@ -23,13 +23,12 @@ public class OddLlaunch {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.findElement(By.className(navLink)).click();
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
 		driver.findElement(By.id("login")).sendKeys(email);
 		driver.findElement(By.id("password")).sendKeys(password);
-		// driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		
 	}
 
 	@Test(priority = 2, enabled = true)
@@ -42,34 +41,32 @@ public class OddLlaunch {
 	}
 
 	@Test(priority = 3, enabled = true)
-	public void SalesPage() throws InterruptedException {
-//Thread.sleep(5000);
-		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Sales Teams')]")).click();
-		driver.findElement(By.xpath("//div/div/div/button[3]")).click();
-		driver.findElement(By.name("name")).sendKeys("100 Dell");
-		driver.findElement(By.className("custom-control-label")).click();
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+	@Parameters({ "configurationMenu", "salesteam", "create" })
+	public void salesPage(String configuration, String salesteam, String create) throws InterruptedException {
 
-		// driver.findElement(By.id("o_field_input_742")).click();
-		// driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anju");
-		// driver.findElement(By.name("alias_name")).sendKeys("kamboj");
-		// driver.findElement(By.id("o_field_input_753")).click();
+		//driver.findElement(By.cssSelector(configuration)).click();
+		driver.findElement(By.cssSelector("a[data-menu-xmlid='crm.crm_menu_config']")).click();
+		driver.findElement(By.xpath(salesteam)).click();
+		driver.findElement(By.xpath(create)).click();
+
 	}
 
 	@Test(priority = 4, enabled = true)
-	public void SalesPageCreated() throws InterruptedException {
+	@Parameters({ "salesteamName", "salesteamNamevalue", "customControlLabel" })
+	public void saleFormPart1(String salesteamName, String salesteamNamevalue, String customControlLabel) {
+		driver.findElement(By.name(salesteamName)).sendKeys(salesteamNamevalue);
+		driver.findElement(By.className(customControlLabel)).click();
+	}
 
-		driver.findElement(By.xpath("//table/tbody/tr[2]/td[2]/div/div/input")).click();
-		driver.findElement(By.xpath("//ul[@id='ui-id-1']/li/a")).click();
-		driver.findElement(By.name("alias_name")).sendKeys("kamboj0071");
-		driver.findElement(By.className("o_form_button_save")).click();
+	@Test(priority = 5, enabled = true)
+	@Parameters({ "teamLeadNameClick", "teamLeadNameSelect","teamLeadEmail","teamLeadNameAlias" ,"everyOne","clickOnSave"})
+	public void saleFormPart2(String teamLeadNameClick,String teamLeadNameSelect,String teamLeadEmail,String teamLeadNameAlias,String everyOne,String clickOnSave) throws InterruptedException {
 
-		driver.findElement(By.xpath("div/div/div/div[2]/div/div/div/div[2]/button[1]")).click();
-
-		// driver.findElement(By.xpath("//input[@id='o_field_input_742']")).sendKeys("anjana");
-		// driver.findElement(By.name("alias_name")).sendKeys("kamboj");
-		// driver.findElement(By.id("o_field_input_753")).click();
+		driver.findElement(By.xpath(teamLeadNameClick)).click();
+		driver.findElement(By.xpath(teamLeadNameSelect)).click();
+		driver.findElement(By.name(teamLeadNameAlias)).sendKeys(teamLeadEmail);
+		driver.findElement(By.className(everyOne)).click();
+		driver.findElement(By.xpath(clickOnSave)).click();
 
 	}
 
