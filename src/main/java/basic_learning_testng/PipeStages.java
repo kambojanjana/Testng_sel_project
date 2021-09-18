@@ -2,12 +2,14 @@ package basic_learning_testng;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class PipeStages {
 	WebDriver driver = InitializeDriver.getDriver();
 
-	@Test
+	@Test(priority = 1,enabled = false)
 	public void pipeStagesCreated() {
 		driver.findElement(By.xpath("//div/div/div/div[3]/div[2]/div[5]/div/div[2]/a/span")).click();
 		driver.findElement(By.xpath("//strong[contains(text(),'Schedule an activity')]")).click();
@@ -23,5 +25,15 @@ public class PipeStages {
 		driver.findElement(By.xpath("//div/div/table[2]/tbody/tr[2]/td[2]/div/div/input")).click();
 		driver.findElement(By.xpath("//ul[@id='ui-id-2']/li[4]/a")).click();
 		driver.findElement(By.xpath("//span[contains(text(),'Schedule')]")).click();
+	}
+	
+	
+	@Test(priority = 2,enabled=false)
+	public void pipeStagesNewToQualified() {
+		WebElement dragFrom = driver.findElement(By.xpath("//body/div/div/div[2]/div/div/div[3]"));
+		WebElement dropTo = driver.findElement(By.xpath("//body/div/div/div[2]/div/div[2]"));
+		
+		Actions dragAndDrop= new Actions(driver);
+		dragAndDrop.clickAndHold(dragFrom).moveToElement(dropTo).release().build().perform();
 	}
 }
