@@ -22,10 +22,12 @@
 		<parameter name="salesteamNamevalue" value="100 Dell" />
 		<parameter name="customControlLabel"
 			value="custom-control-label" />
+			
 		<parameter name="teamLeadNameClick"
-			value="//table/tbody/tr[2]/td[2]/div/div/input" />
+			value="//table/tbody/tr[2]/td[2]/div/div/input" /><!-- select teamlead -->
 		<parameter name="teamLeadNameSelect"
 			value="//ul[@id='ui-id-1']/li/a" />
+			
 		<parameter name="teamLeadEmail" value="kamboj0001" />
 		<parameter name="teamLeadNameAlias" value="alias_name" />
 		<parameter name="everyOne" value="o_form_button_save" />
